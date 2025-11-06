@@ -1,145 +1,519 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="lenis lenis-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website and portfolio">
-    <title>Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ashfall Studio | Empowering Brands Through Strategy, Design and Technology</title>
+    <meta name="description" content="Ashfall Studio is a global creative and technology company. We bring the magnitude of brands' unrealized potential to the surface.">
+    <meta name="theme-color" content="#212121">
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="ashfall-styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Your Name</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+    <!-- WebGL Background -->
+    <div class="webgl-back">
+        <canvas class="webgl-canvas" id="webgl-canvas"></canvas>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__wrapper">
+            <svg class="cursor__svg" viewBox="0 0 9 9" fill="none">
+                <path d="M4.5 0L4.5 9M0 4.5L9 4.5" stroke="currentColor" stroke-width="1"/>
+            </svg>
+            <span class="cursor__label mono"></span>
+        </div>
+    </div>
+
+    <!-- Curtain Transition -->
+    <div class="curtain"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Logo -->
+        <a href="#" class="header-logo">
+            <svg class="header-logo__svg" viewBox="0 0 96 9" fill="currentColor">
+                <path d="M4.5 0L0 9H9L4.5 0Z"/>
+                <text x="12" y="7" font-size="6" font-family="inherit" font-weight="500">ASHFALL STUDIO</text>
+            </svg>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="nav" id="nav">
+            <div class="nav__list-wrapper">
+                <div class="nav__list-inner">
+                    <ul class="nav__list nav__list--primary">
+                        <li class="nav-item">
+                            <a href="#work" class="nav-link">
+                                <span class="mono">Work</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link">
+                                <span class="mono">Services</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#lab" class="nav-link">
+                                <span class="mono">Lab</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">
+                                <span class="mono">About</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="nav__list nav__list--secondary">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="mono">Instagram</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="mono">LinkedIn</span>
+                    </a>
+                </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Hello, I'm <span class="highlight">Your Name</span></h1>
-            <p class="hero-subtitle">Developer | Designer | Creator</p>
-            <p class="hero-description">Building digital experiences that make a difference</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            <div class="nav-contact-btn nav-contact-btn--expanded">
+                <div class="nav-contact-btn__label">
+                    <span class="mono">Let's Talk</span>
+                </div>
+                <div class="nav-contact-btn__svg-wrapper">
+                    <svg class="nav-contact-btn__svg" viewBox="0 0 9 9" fill="none">
+                        <path d="M0 4.5L9 4.5M4.5 0L4.5 9" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Welcome! I'm passionate about creating innovative solutions and beautiful digital experiences.</p>
-                    <p>With expertise in web development and design, I bring ideas to life through clean code and thoughtful user experiences.</p>
-                    <div class="skills">
-                        <h3>Skills</h3>
-                        <div class="skill-tags">
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">UI/UX Design</span>
+            <div class="nav__border border border--left">
+                <svg class="border__svg" viewBox="0 0 9 9" fill="currentColor">
+                    <circle cx="4.5" cy="4.5" r="4.5"/>
+                </svg>
+            </div>
+        </nav>
+
+        <!-- Mobile Contact Button -->
+        <button class="header-contact-btn" aria-label="Contact">
+            <span class="header-contact-btn__label mono">Let's Talk</span>
+        </button>
+
+        <!-- Mobile Nav Toggle -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <div class="nav-toggle__wrapper">
+                <svg class="nav-toggle__svg nav-toggle__svg--open" viewBox="0 0 9 5" fill="currentColor">
+                    <rect width="9" height="1"/>
+                    <rect y="4" width="9" height="1"/>
+                </svg>
+                <svg class="nav-toggle__svg nav-toggle__svg--close" viewBox="0 0 10 10" fill="none">
+                    <path d="M1 1L9 9M9 1L1 9" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+            </div>
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="home-hero" id="home">
+            <div class="home-hero__wrapper">
+                <div class="home-hero__sticky">
+                    <div class="home-hero__inner">
+                        <h1 class="home-hero__title h1 h1--split">
+                            <div class="oh"><span class="anim-line">We partner to </span></div>
+                            <div class="oh"><span class="anim-line">reshape the future</span></div>
+                        </h1>
+                    </div>
+
+                    <!-- Scroll Indicator -->
+                    <div class="home-hero__scroll mono">
+                        Scroll
+                    </div>
+
+                    <!-- Video Reel -->
+                    <div class="home-hero__reel reel reel--animated">
+                        <div class="reel__wrapper">
+                            <div class="reel__video-wrapper base-video base-video--fit">
+                                <div class="reel__video-inner">
+                                    <video class="reel__video-self" autoplay muted loop playsinline>
+                                        <source src="https://assets.ashfall.studio/reel.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="reel__btn">
+                                <div class="btn btn--light">
+                                    <div class="btn__svg-wrapper">
+                                        <svg class="btn__svg btn__svg--play" viewBox="0 0 6 7" fill="currentColor">
+                                            <path d="M0 0L6 3.5L0 7V0Z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="btn__label mono">Showreel</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 1">
+        <!-- About Section -->
+        <section class="home-about" id="about">
+            <div class="grid">
+                <div class="home-about__wrapper">
+                    <div class="border border--left">
+                        <svg class="border__svg" viewBox="0 0 9 9" fill="currentColor">
+                            <circle cx="4.5" cy="4.5" r="4.5"/>
+                        </svg>
                     </div>
-                    <div class="project-info">
-                        <h3>Project Name</h3>
-                        <p>A brief description of this amazing project and what technologies were used to build it.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
+                    <h2 class="home-about__title h1 h1--split">
+                        <div class="oh"><span class="anim-line">Ashfall Studio is a </span></div>
+                        <div class="oh"><span class="anim-line">global creative and </span></div>
+                        <div class="oh"><span class="anim-line">technology company.</span></div>
+                        <div class="oh"><span class="anim-line">We bring the magnitude </span></div>
+                        <div class="oh"><span class="anim-line">of brands' unrealized </span></div>
+                        <div class="oh"><span class="anim-line">potential to the surface.</span></div>
+                    </h2>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 2">
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section class="home-work" id="work">
+            <div class="grid">
+                <div class="section-title">
+                    <div class="border border--left">
+                        <svg class="border__svg" viewBox="0 0 9 9" fill="currentColor">
+                            <circle cx="4.5" cy="4.5" r="4.5"/>
+                        </svg>
                     </div>
-                    <div class="project-info">
-                        <h3>Project Name</h3>
-                        <p>A brief description of this amazing project and what technologies were used to build it.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
+                    <h2 class="h2 ttu mono">Selected Work</h2>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 3">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Name</h3>
-                        <p>A brief description of this amazing project and what technologies were used to build it.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
+            </div>
+
+            <div class="work-list">
+                <div class="work-list__wrapper">
+                    <!-- Work Item 1 -->
+                    <article class="work-item work-item--right">
+                        <a href="#" class="work-item__link">
+                            <div class="work-item__fig-wrapper">
+                                <div class="work-item__fig-inner">
+                                    <div class="work-item__fig work-item__fig--default base-image base-image--fit">
+                                        <img src="https://via.placeholder.com/790x875/212121/929292?text=Project+1" alt="Project 1">
+                                    </div>
+                                    <div class="work-item__fig work-item__fig--hover base-image base-image--fit">
+                                        <img src="https://via.placeholder.com/790x875/EAFFB0/212121?text=Project+1" alt="Project 1 Hover">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="work-item__wrapper">
+                            <h3 class="work-item__title labor">Project Title</h3>
+                            <div class="work-item__tags">
+                                <div class="tag">
+                                    <button class="tag__btn mono">Brand</button>
+                                </div>
+                                <div class="tag">
+                                    <button class="tag__btn mono">Digital</button>
+                                </div>
+                            </div>
                         </div>
+                    </article>
+
+                    <!-- Work Item 2 -->
+                    <article class="work-item work-item--left">
+                        <a href="#" class="work-item__link">
+                            <div class="work-item__fig-wrapper">
+                                <div class="work-item__fig-inner">
+                                    <div class="work-item__fig work-item__fig--default base-image base-image--fit">
+                                        <img src="https://via.placeholder.com/790x875/212121/929292?text=Project+2" alt="Project 2">
+                                    </div>
+                                    <div class="work-item__fig work-item__fig--hover base-image base-image--fit">
+                                        <img src="https://via.placeholder.com/790x875/EAFFB0/212121?text=Project+2" alt="Project 2 Hover">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="work-item__wrapper">
+                            <h3 class="work-item__title labor">Another Project</h3>
+                            <div class="work-item__tags">
+                                <div class="tag">
+                                    <button class="tag__btn mono">Design</button>
+                                </div>
+                                <div class="tag">
+                                    <button class="tag__btn mono">Tech</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work Item 3 -->
+                    <article class="work-item work-item--fullbleed">
+                        <a href="#" class="work-item__link">
+                            <div class="work-item__fig-wrapper work-item__fig-wrapper--landscape">
+                                <div class="work-item__fig-inner">
+                                    <div class="work-item__fig work-item__fig--default base-image base-image--fit">
+                                        <img src="https://via.placeholder.com/1400x800/212121/929292?text=Project+3" alt="Project 3">
+                                    </div>
+                                    <div class="work-item__fig work-item__fig--hover base-image base-image--fit">
+                                        <img src="https://via.placeholder.com/1400x800/EAFFB0/212121?text=Project+3" alt="Project 3 Hover">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="work-item__wrapper">
+                            <h3 class="work-item__title labor">Featured Work</h3>
+                            <div class="work-item__tags">
+                                <div class="tag">
+                                    <button class="tag__btn mono">Strategy</button>
+                                </div>
+                                <div class="tag">
+                                    <button class="tag__btn mono">Development</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="home-work__cta">
+                <button class="btn btn--light">
+                    <div class="btn__svg-wrapper">
+                        <svg class="btn__svg btn__svg--open" viewBox="0 0 9 9" fill="currentColor">
+                            <path d="M0 4.5L9 4.5M4.5 0L4.5 9" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="btn__label mono">View All Work</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Clients Marquee -->
+        <section class="home-clients">
+            <div class="grid">
+                <div class="section-title section-title--hidden-xs">
+                    <h2 class="h2 ttu mono">Clients</h2>
+                </div>
+            </div>
+            <div class="marquee">
+                <div class="marquee__wrapper" id="marquee">
+                    <div class="home-clients__wrapper">
+                        <div class="home-clients__fig"><span class="mono">CLIENT 01</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 02</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 03</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 04</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 05</span></div>
+                    </div>
+                    <div class="home-clients__wrapper" aria-hidden="true">
+                        <div class="home-clients__fig"><span class="mono">CLIENT 01</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 02</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 03</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 04</span></div>
+                        <div class="home-clients__fig"><span class="mono">CLIENT 05</span></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-subtitle">Have a question or want to work together?</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="grid">
+                <div class="services__title-wrapper">
+                    <div class="border border--left">
+                        <svg class="border__svg" viewBox="0 0 9 9" fill="currentColor">
+                            <circle cx="4.5" cy="4.5" r="4.5"/>
+                        </svg>
+                    </div>
+                    <h2 class="services__title h1 h1--split">
+                        <div class="oh"><span class="anim-line">Services</span></div>
+                    </h2>
                 </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
+
+                <div class="services__wrapper">
+                    <div class="services__scroller"></div>
+                    <div class="services__sticky-wrapper">
+                        <div class="services__sticky" id="services-sticky">
+                            <div class="services__sticky-inner">
+                                <!-- Service Item 1 -->
+                                <div class="service-item" data-service="1">
+                                    <div class="service-item__wrapper">
+                                        <div class="service-item__fig">
+                                            <div class="service-item__media base-image base-image--fit">
+                                                <img src="https://via.placeholder.com/705x440/212121/EAFFB0?text=Strategy" alt="Strategy">
+                                            </div>
+                                            <div class="service-item__fig-caption mono">01 — Strategy</div>
+                                            <div class="service-item__btn">
+                                                <div class="btn btn--dark">
+                                                    <div class="btn__svg-wrapper">
+                                                        <svg class="btn__svg btn__svg--open" viewBox="0 0 9 9" fill="currentColor">
+                                                            <path d="M0 4.5L9 4.5M4.5 0L4.5 9" stroke="currentColor" stroke-width="1.5"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Service Item 2 -->
+                                <div class="service-item" data-service="2">
+                                    <div class="service-item__wrapper">
+                                        <div class="service-item__fig">
+                                            <div class="service-item__media base-image base-image--fit">
+                                                <img src="https://via.placeholder.com/705x440/929292/EAFFB0?text=Design" alt="Design">
+                                            </div>
+                                            <div class="service-item__fig-caption mono">02 — Design</div>
+                                            <div class="service-item__btn">
+                                                <div class="btn btn--dark">
+                                                    <div class="btn__svg-wrapper">
+                                                        <svg class="btn__svg btn__svg--open" viewBox="0 0 9 9" fill="currentColor">
+                                                            <path d="M0 4.5L9 4.5M4.5 0L4.5 9" stroke="currentColor" stroke-width="1.5"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Service Item 3 -->
+                                <div class="service-item" data-service="3">
+                                    <div class="service-item__wrapper">
+                                        <div class="service-item__fig">
+                                            <div class="service-item__media base-image base-image--fit">
+                                                <img src="https://via.placeholder.com/705x440/EAFFB0/212121?text=Technology" alt="Technology">
+                                            </div>
+                                            <div class="service-item__fig-caption mono">03 — Technology</div>
+                                            <div class="service-item__btn">
+                                                <div class="btn btn--dark">
+                                                    <div class="btn__svg-wrapper">
+                                                        <svg class="btn__svg btn__svg--open" viewBox="0 0 9 9" fill="currentColor">
+                                                            <path d="M0 4.5L9 4.5M4.5 0L4.5 9" stroke="currentColor" stroke-width="1.5"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services__scroller"></div>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-            <div class="social-links">
-                <a href="#" class="social-link">GitHub</a>
-                <a href="#" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">Twitter</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-    </footer>
+        <!-- Lab Section -->
+        <section class="home-lab" id="lab">
+            <div class="home-lab__wrapper">
+                <div class="home-lab__inner">
+                    <div class="border border--center">
+                        <svg class="border__svg" viewBox="0 0 9 9" fill="currentColor">
+                            <circle cx="4.5" cy="4.5" r="4.5"/>
+                        </svg>
+                    </div>
+                    <h2 class="home-lab__title h2 ttu mono">Lab</h2>
+                    <button class="btn btn--light">
+                        <div class="btn__svg-wrapper">
+                            <svg class="btn__svg btn__svg--link" viewBox="0 0 10 9" fill="none">
+                                <path d="M1 4.5h8M5.5 1l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <span class="btn__label mono">Explore Lab</span>
+                    </button>
+                </div>
+                <div class="home-lab__video base-video base-video--fit">
+                    <video autoplay muted loop playsinline>
+                        <source src="https://assets.ashfall.studio/lab-bg.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="grid">
+                <div class="contact__wrapper contact__wrapper--spacing">
+                    <div class="border border--left">
+                        <svg class="border__svg" viewBox="0 0 9 9" fill="currentColor">
+                            <circle cx="4.5" cy="4.5" r="4.5"/>
+                        </svg>
+                    </div>
+                    <h2 class="contact__title h1 h1--split">
+                        <div class="oh"><span class="anim-line">Let's create </span></div>
+                        <div class="oh"><span class="anim-line">something </span></div>
+                        <div class="oh"><span class="anim-line">remarkable together</span></div>
+                    </h2>
+                    <button class="contact__cta btn btn--light">
+                        <div class="btn__svg-wrapper">
+                            <svg class="btn__svg btn__svg--open" viewBox="0 0 9 9" fill="currentColor">
+                                <path d="M0 4.5L9 4.5M4.5 0L4.5 9" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <span class="btn__label mono">Get In Touch</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="grid">
+                <div class="footer__row grid">
+                    <div class="footer__socials">
+                        <a href="#" class="social-link">
+                            <div class="social-link__wrapper">
+                                <svg class="social-link__svg" viewBox="0 0 10 9" fill="none">
+                                    <path d="M1 4.5h8M5.5 1l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="social-link__label mono">Instagram</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-link__wrapper">
+                                <svg class="social-link__svg" viewBox="0 0 10 9" fill="none">
+                                    <path d="M1 4.5h8M5.5 1l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="social-link__label mono">LinkedIn</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-link__wrapper">
+                                <svg class="social-link__svg" viewBox="0 0 10 9" fill="none">
+                                    <path d="M1 4.5h8M5.5 1l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="social-link__label mono">Twitter</span>
+                        </a>
+                    </div>
+                    <div class="footer__copyright mono">
+                        © 2025 Ashfall Studio
+                    </div>
+                    <div class="footer__legal mono">
+                        <a href="#">Privacy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Landscape Warning (Mobile) -->
+    <div class="landscape-orientation">
+        <p class="mono">Please rotate your device to portrait mode</p>
+    </div>
+
+    <script src="ashfall-script.js"></script>
 </body>
 </html>
